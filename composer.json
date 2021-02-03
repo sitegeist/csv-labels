@@ -1,8 +1,7 @@
 {
     "name": "sitegeist/csv-labels",
     "type": "typo3-cms-extension",
-    "description": "Use CSV files to store translation labels with TYPO3",
-    "version": "1.0.0",
+    "description": "Use CSV files to provide translation labels to TYPO3",
     "authors": [
         {
             "name": "Simon Praetorius",

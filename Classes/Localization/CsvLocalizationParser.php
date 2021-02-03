@@ -16,7 +16,7 @@ class CsvLocalizationParser implements \TYPO3\CMS\Core\Localization\Parser\Local
     public function getParsedData($sourcePath, $languageKey)
     {
         if (!@is_file($sourcePath)) {
-            throw new FileNotFoundException('Localization file does not exist', 1612282091);
+            throw new FileNotFoundException('Localization csv file does not exist', 1612282091);
         }
 
         $handle = fopen($sourcePath, 'r');

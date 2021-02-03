@@ -1,14 +1,14 @@
 <?php
 $EM_CONF['csv_labels'] = [
     'title' => 'CSV Labels',
-    'description' => 'Use CSV files to store translation labels with TYPO3',
+    'description' => 'Use CSV files to provide translation labels to TYPO3',
     'category' => 'misc',
     'author' => 'Simon Praetorius',
     'author_email' => 'praetorius@sitegeist.de',
     'author_company' => 'sitegeist media solutions GmbH',
-    'state' => 'beta',
+    'state' => 'stable',
     'uploadfolder' => false,
-    'clearCacheOnLoad' => false,
+    'clearCacheOnLoad' => true,
     'version' => '1.0.0',
     'constraints' => [
         'depends' => [
