@@ -1,0 +1,41 @@
+name: tests
+
+on: [push, pull_request]
+
+jobs:
+    lint:
+        name: Source code linting
+        runs-on: ubuntu-latest
+        steps:
+            -
+                uses: actions/checkout@v2
+
+            -
+                name: Setup PHP
+                uses: shivammathur/setup-php@v2
+                with:
+                    php-version: 7.4
+                    extensions: intl, mbstring, pdo_sqlite
+
+            -
+                name: Validate composer.json
+                run: composer validate
+
+            -
+                name: Cache composer dependencies
+                uses: actions/cache@v1
+                with:
+                    path: ~/.composer/cache
+                    key: composer
+
+            -
+                name: Install composer dependencies
+                run: composer install --prefer-dist --no-progress --no-suggest
+
+            -
+                name: PHP linting
+                run: composer lint:php
+
+            -
+                name: Editorconfig linting
+                run: composer lint:editorconfig
