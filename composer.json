@@ -38,7 +38,8 @@
     "extra": {
         "typo3/cms": {
             "cms-package-dir": "{$vendor-dir}/typo3/cms",
-            "web-dir": ".Build/Web"
+            "web-dir": ".Build/Web",
+            "extension-key": "csv_labels"
         }
     },
     "scripts": {
@@ -47,6 +48,9 @@
             "@lint:editorconfig"
         ],
         "lint:php": "phpcs --standard=PSR2 --extensions=php --exclude=Generic.Files.LineLength --ignore=.Build,Tests .",
-        "lint:editorconfig": "ec ."
+        "lint:editorconfig": "ec .",
+        "prepare-release": [
+            "rm -r .github .ecrc .editorconfig .gitattributes Tests"
+        ]
     }
 }
