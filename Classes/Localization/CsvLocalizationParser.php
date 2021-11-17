@@ -42,6 +42,7 @@ class CsvLocalizationParser implements \TYPO3\CMS\Core\Localization\Parser\Local
             }
         }
 
+        fclose($handle);
         unset($LOCAL_LANG['identifier']);
         unset($LOCAL_LANG['description']);
         return $LOCAL_LANG;
