@@ -1,5 +1,5 @@
 <?php
-$EM_CONF['csv_labels'] = [
+$EM_CONF[$_EXTKEY] = [
     'title' => 'CSV Labels',
     'description' => 'Use CSV files to provide translation labels to TYPO3',
     'category' => 'misc',
