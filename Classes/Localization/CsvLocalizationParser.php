@@ -1,9 +1,11 @@
 <?php
+declare(strict_types=1);
 namespace Sitegeist\CsvLabels\Localization;
 
 use TYPO3\CMS\Core\Localization\Exception\FileNotFoundException;
+use TYPO3\CMS\Core\Localization\Parser\LocalizationParserInterface;
 
-class CsvLocalizationParser implements \TYPO3\CMS\Core\Localization\Parser\LocalizationParserInterface
+class CsvLocalizationParser implements LocalizationParserInterface
 {
     /**
      * Returns parsed representation of CSV language labels file
@@ -13,7 +15,7 @@ class CsvLocalizationParser implements \TYPO3\CMS\Core\Localization\Parser\Local
      * @return array
      * @throws \TYPO3\CMS\Core\Localization\Exception\FileNotFoundException
      */
-    public function getParsedData($sourcePath, $languageKey)
+    public function getParsedData($sourcePath, $languageKey): array
     {
         if (!@is_file($sourcePath)) {
             throw new FileNotFoundException('Localization csv file does not exist', 1612282091);
