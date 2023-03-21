@@ -2,20 +2,19 @@
     "name": "sitegeist/csv-labels",
     "type": "typo3-cms-extension",
     "description": "Use CSV files to provide translation labels to TYPO3",
+    "homepage": "https://github.com/sitegeist/csv-labels",
+    "license": ["GPL-2.0-or-later"],
     "authors": [
         {
             "name": "Simon Praetorius",
             "role": "Developer"
         }
     ],
-    "license": [
-        "GPL-2.0-or-later"
-    ],
     "support": {
         "issues": "https://github.com/sitegeist/csv-labels/issues"
     },
     "require": {
-        "typo3/cms-core": "^9.5 || ^10.4 || ^11"
+        "typo3/cms-core": "^12.2 || ^11.5 || ^10.4 || ^9.5"
     },
     "require-dev": {
         "squizlabs/php_codesniffer": "^3.0",
@@ -33,7 +32,11 @@
     },
     "config": {
         "vendor-dir": ".Build/vendor",
-        "bin-dir": ".Build/bin"
+        "bin-dir": ".Build/bin",
+        "allow-plugins": {
+            "typo3/class-alias-loader": true,
+            "typo3/cms-composer-installers": true
+        }
     },
     "extra": {
         "typo3/cms": {
@@ -47,7 +50,7 @@
             "@lint:php",
             "@lint:editorconfig"
         ],
-        "lint:php": "phpcs --standard=PSR2 --extensions=php --exclude=Generic.Files.LineLength --ignore=.Build,Tests .",
+        "lint:php": "phpcs --standard=PSR2 --extensions=php --exclude=Generic.Files.LineLength --ignore=.Build,Tests,ext_emconf.php .",
         "lint:editorconfig": "ec .",
         "prepare-release": [
             "rm -r .github .ecrc .editorconfig .gitattributes Tests"
