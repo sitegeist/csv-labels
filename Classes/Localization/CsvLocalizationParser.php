@@ -44,6 +44,11 @@ class CsvLocalizationParser implements LocalizationParserInterface
             }
         }
 
+        // Add default translation for requested language if it not exists
+        if (!array_key_exists($languageKey, $LOCAL_LANG)) {
+            $LOCAL_LANG[$languageKey] = $LOCAL_LANG['default'];
+        }
+
         fclose($handle);
         unset($LOCAL_LANG['identifier']);
         unset($LOCAL_LANG['description']);
