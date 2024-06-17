@@ -6,8 +6,12 @@
     "license": ["GPL-2.0-or-later"],
     "authors": [
         {
+            "name": "Ulrich Mathes",
+            "email": "mathes@sitegeist.de"
+        },
+        {
             "name": "Simon Praetorius",
-            "role": "Developer"
+            "email": "moin@praetorius.me"
         }
     ],
     "support": {
