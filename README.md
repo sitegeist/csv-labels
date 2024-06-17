@@ -48,7 +48,8 @@ Rules:
 
 ## Authors & Sponsors
 
-* Simon Praetorius - praetorius@sitegeist.de
+* Ulrich Mathes - mathes@sitegeist.de
+* Simon Praetorius - moin@praetorius.me
 * [All contributors](https://github.com/sitegeist/fluid-components/graphs/contributors)
 
 *The development and the public-releases of this package is generously sponsored
