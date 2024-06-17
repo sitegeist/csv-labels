@@ -25,6 +25,11 @@ class CsvLocalizationParser implements LocalizationParserInterface
         $header = fgetcsv($handle);
 
         $LOCAL_LANG = array_fill_keys($header, []);
+
+        if (!in_array($languageKey, $header)) {
+            throw new FileNotFoundException('Localization csv file does not contain requested language', 1718634465);
+        }
+
         while (($line = fgetcsv($handle)) !== false) {
             $identifier = $line[0];
 
