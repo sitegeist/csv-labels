@@ -6,8 +6,12 @@
     "license": ["GPL-2.0-or-later"],
     "authors": [
         {
+            "name": "Ulrich Mathes",
+            "email": "mathes@sitegeist.de"
+        },
+        {
             "name": "Simon Praetorius",
-            "role": "Developer"
+            "email": "moin@praetorius.me"
         }
     ],
     "support": {
@@ -53,6 +57,7 @@
         "lint:php": "phpcs --standard=PSR2 --extensions=php --exclude=Generic.Files.LineLength --ignore=.Build,Tests,ext_emconf.php .",
         "lint:editorconfig": "ec .",
         "prepare-release": [
+            "sed -i'' -e \"s/'version' => ''/'version' => '$(echo ${GITHUB_REF#refs/tags/} | sed 's/v//')'/\" ext_emconf.php",
             "rm -r .github .ecrc .editorconfig .gitattributes Tests"
         ]
     }
