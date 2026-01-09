@@ -1,14 +1,18 @@
 <?php
+declare(strict_types=1);
 
-call_user_func(function () {
-    // Add csv files to language format priorities
-    $languageFilePriority = \TYPO3\CMS\Core\Utility\GeneralUtility::trimExplode(
-        ',',
-        $GLOBALS['TYPO3_CONF_VARS']['SYS']['lang']['format']['priority']
-    );
-    $languageFilePriority[] = 'csv';
-    $GLOBALS['TYPO3_CONF_VARS']['SYS']['lang']['format']['priority'] = implode(',', $languageFilePriority);
+use Sitegeist\CsvLabels\Translation\Loader\CsvLoader;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 
-    // Register CSV parser for language files
-    $GLOBALS['TYPO3_CONF_VARS']['SYS']['lang']['parser']['csv'] = \Sitegeist\CsvLabels\Localization\CsvLocalizationParser::class;
-});
+defined('TYPO3') or die();
+
+// Add csv files to language format priorities
+$languageFilePriority = GeneralUtility::trimExplode(
+    ',',
+    $GLOBALS['TYPO3_CONF_VARS']['LANG']['format']['priority']
+);
+$languageFilePriority[] = 'csv';
+$GLOBALS['TYPO3_CONF_VARS']['LANG']['format']['priority'] = implode(',', $languageFilePriority);
+
+// Register CSV loader for language files
+$GLOBALS['TYPO3_CONF_VARS']['LANG']['loader']['csv'] = CsvLoader::class;
