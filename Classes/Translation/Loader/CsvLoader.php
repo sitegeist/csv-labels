@@ -43,6 +43,7 @@ class CsvLoader implements LoaderInterface
             return new MessageCatalogue($locale);
         }
 
+        $messages = [];
         foreach ($file as $lineNumber => $translation) {
             if ($lineNumber === 0 || empty($translation[0])) {
                 continue;
